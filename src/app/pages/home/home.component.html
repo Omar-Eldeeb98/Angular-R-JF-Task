@@ -1,0 +1,212 @@
+<section class="vh-100">
+  <div class="overlay">
+    <div class="container-fluid">
+      <div class="row justify-content-center p-1">
+        <div class="col-md-8 mx-auto">
+          <div>
+            <div
+              class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2"
+            >
+              <img
+                src="assets/pics/customer.png"
+                class="me-3"
+                alt="customers"
+              />
+              <h2 class="fw-bold p-0 m-0 text-uppercase">Our Customers</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mb-0 mx-auto mt-0">
+          <hr class="w-100 mb-1 text-warning border-3" />
+        </div>
+
+        <div class="col-md-8 mx-auto mt-3">
+          <div class="row g-2">
+            <div class="col-md-8">
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <div class="inputs-container bg-dark p-3 rounded shadow">
+                    <div class="input-group">
+                      <span
+                        class="input-group-text bg-warning border-0 shadow-lg"
+                        id="basic-addon1"
+                        ><i
+                          class="fa-solid fa-magnifying-glass text-dark fw-bold"
+                        ></i
+                      ></span>
+                      <input
+                        [(ngModel)]="filterCustomerName"
+                        aria-describedby="basic-addon1"
+                        type="text"
+                        class="form-control"
+                        placeholder="Search by customer Name : "
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="inputs-container bg-dark p-3 rounded shadow">
+                    <div class="input-group">
+                      <span
+                        class="input-group-text bg-warning border-0 shadow-lg"
+                        id="basic-addon1"
+                        ><i
+                          class="fa-solid fa-magnifying-glass text-dark fw-bold"
+                        ></i
+                      ></span>
+                      <input
+                        [(ngModel)]="filterTransactionAmount"
+                        aria-describedby="basic-addon1"
+                        type="text"
+                        class="form-control"
+                        placeholder="Search by Transaction Amount : "
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="select-container bg-dark p-3 rounded shadow">
+                <div class="input-group">
+                  <span
+                    class="input-group-text bg-warning border-0"
+                    id="basic-addon1"
+                    ><i class="fa-solid fa-users text-dark"></i
+                  ></span>
+                  <select
+                    aria-describedby="basic-addon1"
+                    (change)="handleSpeCificTransactions(selectedCustomerId)"
+                    class="form-select"
+                    aria-label="Default select example"
+                    [(ngModel)]="selectedCustomerId"
+                  >
+                    <option [value]="0" class="lead text-center">
+                      -- Select Customer --
+                    </option>
+
+                    <option
+                      class="text-start lead"
+                      *ngFor="let c of customers"
+                      [value]="c.id"
+                    >
+                      - {{ c.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mx-auto">
+          <div class="table-container overflow-auto mt-3 rounded">
+            <table
+              class="table table-bordered table-dark table-hover text-center"
+            >
+              <thead class="table-active">
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Customer ID</th>
+                  <th>Customer Name</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Charts</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr
+                  *ngFor="
+                    let customer of compinedData
+                      | slice
+                        : curPage * pageSize - pageSize
+                        : curPage * pageSize
+                      | filterByCustomerName : filterCustomerName
+                      | filterByTransactionAmount : filterTransactionAmount;
+                    index as i
+                  "
+                >
+                  <td>{{ customer.transactionId }}</td>
+                  <td>{{ customer.customerId }}</td>
+                  <td>{{ customer.customerName }}</td>
+                  <td>{{ customer.date }}</td>
+                  <td>{{ customer.amount }}</td>
+                  <td class="analysis">
+                    <img
+                      class="p-2 rounded shadow"
+                      src="assets/pics/l3.png"
+                      alt="customer chart"
+                      (click)="handleSpeCificTransactions(customer.customerId)"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            class="kkk mb-1 shadow-lg d-flex align-items-center py-2 px-2 rounded-bottom gap-2 justify-content-between text-center flex-wrap"
+          >
+            <div class="total-container shadow rounded-1">
+              <p class="p-0 m-0">
+                Total :
+                <span class="text-warning fw-bold">{{
+                  compinedData.length
+                }}</span>
+              </p>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center mx-0">
+              <button
+                [ngClass]="{
+                  'btn-warning': curPage == 1,
+                  'btn-outline-warning': curPage > 1
+                }"
+                class="btn rounded-2"
+                [disabled]="curPage == 1"
+                (click)="curPage = curPage - 1"
+              >
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+
+              <span class="info mx-1 rounded-1 p-2">
+                <span class="text-warning fw-bold"> {{ curPage }}</span> /
+                {{ numberOfPages() }}</span
+              >
+
+              <button
+                [ngClass]="{
+                  'btn-warning': curPage >= numberOfPages(),
+                  'btn-outline-warning': curPage < numberOfPages()
+                }"
+                class="btn rounded-2"
+                [disabled]="curPage >= numberOfPages()"
+                (click)="curPage = curPage + 1"
+              >
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="total-container shadow rounded-1">
+              <p class="p-0 m-0">
+                P-P :
+                <span class="text-warning">{{ pageSize }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mx-auto">
+          <p
+            class="dev text-center text-uppercase mt-2 rounded p-2 shadow lead mx-auto"
+          >
+            By : Omar eldeeb, ©️2024
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

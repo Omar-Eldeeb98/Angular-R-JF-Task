@@ -1,0 +1,62 @@
+section {
+  min-height: 100vh !important;
+  background-image: url(../../../assets/pics/bg0.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+}
+.overlay {
+  width: 100%;
+
+  min-height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.619);
+}
+
+div.dd img {
+  width: 50px;
+  height: 50px;
+}
+div.dd h2 {
+  color: #9fa8da;
+}
+
+.section-notfound {
+  width: 100%;
+  height: 100vh;
+}
+
+div.dd {
+  background-color: #3f51b5;
+}
+
+.chart-con {
+  background-color: #3f51b5 !important;
+}
+
+.ccc {
+  background-color: #3f51b5 !important;
+  color: #9fa8da;
+}
+.ccc button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aa {
+  background-color: rgba(0, 0, 0, 0.71);
+}
+.dev {
+  color: #9fa8da;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.647);
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.aa span {
+  background-color: #3f51b5;
+}

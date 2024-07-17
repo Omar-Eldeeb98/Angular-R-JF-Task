@@ -1,0 +1,22 @@
+<div *ngIf="!isLoading">
+  <router-outlet></router-outlet>
+</div>
+<div class="splash-screen overflow-hidden" *ngIf="isLoading">
+  <div class="img-container animate__animated animate__fadeInDownBig">
+    <img
+      src="assets/pics/routeacademy_logo.jpeg"
+      alt="routeacademy_logo"
+      class="rounded-circle img-thumbnail shadow"
+    />
+  </div>
+
+  <div class="info-container mt-5 animate__animated animate__fadeInUpBig">
+    <p class="text-center lead text-uppercase p-2 rounded px-3">
+      software training center
+      <span><hr class="mb-1 mt-2" /></span>
+      <span class="developer-info"> By : Omar Eldeeb </span>
+    </p>
+  </div>
+</div>
+<!--ngx spinner-->
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

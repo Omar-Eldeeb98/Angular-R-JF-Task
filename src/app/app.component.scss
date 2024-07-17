@@ -1,0 +1,26 @@
+.splash-screen {
+  position: relative;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3f51b5 !important;
+  flex-direction: column;
+}
+
+.img-container img {
+  width: 160px !important;
+}
+
+.info-container p {
+  letter-spacing: 2px !important;
+  //   color: #ffc107;
+  color: whitesmoke;
+  background-color: #002b6a !important;
+  font-size: 18px !important;
+}
+
+.developer-info {
+  font-size: 12px !important;
+}

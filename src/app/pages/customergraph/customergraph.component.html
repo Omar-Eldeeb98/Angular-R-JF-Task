@@ -1,0 +1,60 @@
+<section class="vh-100 vw-100">
+  <div class="overlay">
+    <div class="container-fluid">
+      <div class="row justify-content-center p-1">
+        <div class="col-md-8 mx-auto">
+          <div>
+            <div
+              class="dd d-flex w-100 align-items-center justify-content-center rounded shadow py-2 flex-wrap gap-2"
+            >
+              <img src="assets/pics/l3.png" class="me-1" alt="customers" />
+              <h2 class="fw-bold p-0 m-0 text-uppercase text-center">
+                Transaction Charts
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 mb-0 mx-auto">
+          <hr class="w-100 mb-1 text-warning border-3" />
+        </div>
+
+        <div class="col-md-8 mx-auto my-2">
+          <div
+            class="ccc rounded d-flex justify-content-between align-items-center p-2 shadow flex-wrap gap-1"
+          >
+            <div class="btn-container mx-auto">
+              <Button
+                class="btn btn-danger text-uppercase lead"
+                (click)="goBack()"
+                ><i class="fa-solid fa-arrow-left-long me-2 fa-xl"></i>GO BACK
+              </Button>
+            </div>
+
+            <div class="aa p-2 rounded mx-auto">
+              <h5 *ngFor="let c of customer" class="p-0 m-0 text-capitalize">
+                Cuntomer Name :
+                <span class="p-1 px-2 text-center rounded shadow">{{
+                  c.name
+                }}</span>
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mx-auto mt-1">
+          <div class="chart-con p-3 rounded shadow">
+            <div class="my-chart w-100 h-100" [chart]="testChart"></div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mx-auto">
+          <p
+            class="dev text-center text-uppercase mt-2 rounded p-2 shadow lead"
+          >
+            By : Omar eldeeb, ©️2024
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

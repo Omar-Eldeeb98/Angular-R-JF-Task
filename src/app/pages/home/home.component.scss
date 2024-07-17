@@ -1,0 +1,99 @@
+section {
+  min-height: 100vh !important;
+  background-image: url(../../../assets/pics/bg0.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+}
+
+.overlay {
+  width: 100%;
+  min-height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.619);
+}
+div.dd img {
+  width: 55px;
+  height: 55px;
+}
+div.dd h2 {
+  color: #9fa8da;
+}
+
+.section-notfound {
+  width: 100%;
+  height: 100vh;
+}
+
+div.dd {
+  background-color: #3f51b5;
+}
+
+.analysis {
+  cursor: pointer;
+}
+
+.analysis img {
+  width: 47px;
+  height: 47px;
+  background-color: #9fa8da67;
+  transition: all ease 0.3s;
+}
+
+.analysis img:hover {
+  transform: scale(1.1);
+}
+
+.kkk {
+  background-color: rgba(0, 0, 0, 0.678);
+}
+.msg-container p {
+  font-size: 25px;
+  background-color: rgba(0, 0, 0, 0.756);
+  color: #ffa726;
+  width: fit-content;
+}
+.info {
+  color: #9fa8da;
+  font-weight: bold;
+  background-color: #3f51b5a3;
+  padding: 4px 10px;
+}
+.total-container {
+  background: #3f51b5;
+  color: #9fa8da;
+  padding: 6px;
+  width: fit-content !important;
+}
+
+.total-container p span {
+  font-weight: bold;
+}
+
+.chart-btn {
+  font-size: 22px;
+  transition: all ease 0.5s;
+}
+
+.chart-btn span {
+  font-size: 18px !important;
+}
+
+.chart-btn:hover {
+  transform: scale(1.1);
+}
+
+select option {
+  text-transform: capitalize !important;
+  background-color: #ffc107;
+  letter-spacing: 1px;
+}
+
+.dev {
+  background-color: rgba(0, 0, 0, 0.647);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: #9fa8da;
+  width: fit-content;
+}
