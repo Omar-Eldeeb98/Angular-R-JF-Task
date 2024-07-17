@@ -8,10 +8,10 @@
 - show customers and there transactions data in a beatifull and readable table
 - ability to serarch in table by (customer name) or (transaction amount)
 - a beatiful chart (graph) for every customer that show customer's transactions amout per day
-- beautiful spinner appearing untill data comes from the server.
+- beautiful spinner appearing untill data comes from the server (by using Interceptor).
 - spalsh screen when you refresh or open the website for the first time.
 - alerts and welcome messages apear to the user when take a specific action.
-- smooth animation and responsiv design.
+- smooth animation and responsive design.
 - smooth, responsive and effiecient Pagination built from scratch without any packages. 
 
 ## Technologies  : 
